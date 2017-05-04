@@ -13,30 +13,30 @@ import UIKit
 
 extension UIEdgeInsets{
     
-    static func topInset(top: CGFloat) -> UIEdgeInsets{
+    static func topInset(_ top: CGFloat) -> UIEdgeInsets{
         return UIEdgeInsets(top: top, right: 0, bottom: 0, left: 0);
     }
     
-    static func rightInset(right: CGFloat) -> UIEdgeInsets{
+    static func rightInset(_ right: CGFloat) -> UIEdgeInsets{
         return UIEdgeInsets(top: 0, right: right, bottom: 0, left: 0);
     }
     
     
-    static func bottomInset(bottom: CGFloat) -> UIEdgeInsets{
+    static func bottomInset(_ bottom: CGFloat) -> UIEdgeInsets{
         return UIEdgeInsets(top: 0, right: 0, bottom: bottom, left: 0);
     }
     
-    static func leftInset(left: CGFloat) -> UIEdgeInsets {
+    static func leftInset(_ left: CGFloat) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, right: 0, bottom: 0, left: left);
     }
     
     
-    static func horizontalInsets(inset: CGFloat) -> UIEdgeInsets{
+    static func horizontalInsets(_ inset: CGFloat) -> UIEdgeInsets{
         return UIEdgeInsets(top: 0, right: inset, bottom: 0, left: inset);
     }
     
     
-    func verticleInsets(inset: CGFloat) -> UIEdgeInsets{
+    func verticleInsets(_ inset: CGFloat) -> UIEdgeInsets{
         return UIEdgeInsets(top: inset, right: 0, bottom: inset, left: 0);
     }
     

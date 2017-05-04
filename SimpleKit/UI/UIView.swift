@@ -11,10 +11,10 @@ import UIKit;
 
 
 enum UIViewEdge : Int {
-    case Top
-    case Right
-    case Bottom
-    case Left
+    case top
+    case right
+    case bottom
+    case left
 };
 
 extension UIView{
@@ -141,10 +141,10 @@ extension UIView{
 extension UIView{
     
     func fill() -> Void {
-        self.fillWithInsets(UIEdgeInsetsZero);
+        self.fillWithInsets(UIEdgeInsets.zero);
     }
     
-    func fillWithInsets( insets: UIEdgeInsets) -> Void{
+    func fillWithInsets( _ insets: UIEdgeInsets) -> Void{
         
         if let superview = self.superview{
             self.frame = UIView.rectFullInSuperview(superview, insets: insets);
@@ -155,39 +155,38 @@ extension UIView{
 // MARK: - Edge
 extension UIView{
     
-    func setEdge(edge: UIViewEdge, length: CGFloat) -> Void{
-        self.setEdge(edge, length: length, insets: UIEdgeInsetsZero);
+    func setEdge(_ edge: UIViewEdge, length: CGFloat) -> Void{
+        self.setEdge(edge, length: length, insets: UIEdgeInsets.zero);
     }
     
-    func setEdge(edge: UIViewEdge, length: CGFloat, insets: UIEdgeInsets) -> Void{
+    func setEdge(_ edge: UIViewEdge, length: CGFloat, insets: UIEdgeInsets) -> Void{
 
         if let superview = self.superview{
             self.frame = UIView.rectInSuperview(superview, edge: edge, length: length, insets: insets);
         }
-//        self.autoresizingMask = [UIView autoresizingForLengthEdge:edge];
     }
 }
 
 // MARK:- Rect / Frame
 extension UIView{
     
-    class func rectInSuperview(superview: UIView, edge:UIViewEdge, length:CGFloat, insets:UIEdgeInsets) -> CGRect{
+    class func rectInSuperview(_ superview: UIView, edge:UIViewEdge, length:CGFloat, insets:UIEdgeInsets) -> CGRect{
         switch (edge) {
-            case UIViewEdge.Top:
-                return CGRectMake(insets.left, insets.top, superview.width - insets.left - insets.right, length);
+            case UIViewEdge.top:
+                return CGRect(x: insets.left, y: insets.top, width: superview.width - insets.left - insets.right, height: length);
             
-            case UIViewEdge.Right:
-                return CGRectMake(superview.width - length - insets.right, insets.top, length, superview.height - insets.top - insets.bottom);
+            case UIViewEdge.right:
+                return CGRect(x: superview.width - length - insets.right, y: insets.top, width: length, height: superview.height - insets.top - insets.bottom);
             
-            case UIViewEdge.Bottom:
-                return CGRectMake(insets.left, superview.height - length - insets.bottom, superview.width - insets.left - insets.right, length);
+            case UIViewEdge.bottom:
+                return CGRect(x: insets.left, y: superview.height - length - insets.bottom, width: superview.width - insets.left - insets.right, height: length);
             
-            case UIViewEdge.Left:
-                return CGRectMake(insets.left, insets.top, length, superview.height - insets.top - insets.bottom);
+            case UIViewEdge.left:
+                return CGRect(x: insets.left, y: insets.top, width: length, height: superview.height - insets.top - insets.bottom);
         }
     }
     
-    class func rectFullInSuperview(superview: UIView, insets:UIEdgeInsets) -> CGRect {
+    class func rectFullInSuperview(_ superview: UIView, insets:UIEdgeInsets) -> CGRect {
         return CGRect(x: insets.left, y: insets.top, width: superview.width - insets.left - insets.right, height: superview.height - insets.top - insets.bottom);
     }
 }

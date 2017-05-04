@@ -36,7 +36,7 @@ extension CGRect{
     }
     
     
-    func inset(insets: UIEdgeInsets) -> CGRect{
+    func inset(_ insets: UIEdgeInsets) -> CGRect{
         return CGRect(x: self.x + insets.left,
                       y: self.y + insets.top,
                       width: self.width - insets.right,

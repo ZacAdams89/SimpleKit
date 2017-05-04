@@ -9,11 +9,12 @@
 import Foundation
 import CoreData
 
+
 extension NSFetchRequest{
 
     
     convenience init(entityClass: AnyClass?){
-        self.init(entityName: NSStringFromClass(entityClass))
+        self.init(entityName: SimpleKitStringFromClass(entityClass))
     }
     
     convenience init(entityClass: AnyClass?, predicate: NSPredicate){
@@ -31,7 +32,7 @@ extension NSFetchRequest{
         }
     }
             
-    func setSortDescriptor(sortDescriptor: NSSortDescriptor) {
+    func setSortDescriptor(_ sortDescriptor: NSSortDescriptor) {
         self.sortDescriptors = [sortDescriptor]
     }
 }
